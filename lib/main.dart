@@ -6,10 +6,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: "UI",
+        title: "Calculator",
         home: Scaffold(
-          appBar:
-              AppBar(title: Text("Calculator by Nattapon Lueakaew 5935512004")),
+          appBar: AppBar(
+              title: Text("Calculator by Nattapon Lueakaew 5935512004",
+                  style: TextStyle(
+                    fontSize: 16,
+                  ))),
           body: ListView(children: <Widget>[CalculatorApp()]),
         ));
   }
@@ -24,14 +27,37 @@ class _CalculatorAppState extends State<CalculatorApp> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: Colors.blue[100],
-        child: Column(children: <Widget>[buildKeyboard()]));
+        color: Colors.blueGrey[900],
+        child: Column(children: <Widget>[buildScreen(), buildKeyboard()]));
+  }
+
+  Widget buildScreen() {
+    return Container(
+        height: 310,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: <Widget>[
+            Expanded(
+              flex: 10,
+              child: Container(
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                    Text("5935512004",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 50,
+                            fontWeight: FontWeight.bold))
+                  ])),
+            ),
+          ],
+        ));
   }
 
   Widget buildKeyboard() {
     return Container(
         height: 300,
-        color: Colors.white,
+        color: Colors.blueGrey[900],
         child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             mainAxisSize: MainAxisSize.max,
